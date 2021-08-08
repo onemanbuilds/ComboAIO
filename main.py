@@ -6,9 +6,6 @@ import requests
 
 combos = _readFile('combos.txt','r')
 
-#title update bug
-#dehash untested
-
 class Main:
     def __init__(self) -> None:
         _setTitle('[ComboAIO]')
@@ -100,12 +97,15 @@ class AddDomain:
         """
         print(title)
 
+        self.stop_thread = False
         self.added = 0
-
+        
     def _titleUpdate(self):
         while True:
             _setTitle(f'[ComboAIO] ^| [AddDomain] ^| ADDED: {self.added}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _domain(self):
         domain = str(input(f'{colors["white"]}[>] {colors["yellow"]}Domain:{colors["white"]} '))
@@ -133,7 +133,10 @@ class AddDomain:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
         self._domain()
 
 class Combiner:
@@ -148,12 +151,16 @@ class Combiner:
                                    ╚════════════════════════════════════════════════╝
         """
         print(title)
-        self.combined = 0
 
+        self.stop_thread = False
+        self.combined = 0
+        
     def _titleUpdate(self):
         while True:
             _setTitle(f'[ComboAIO] ^| [Combiner] ^| COMBINED: {self.combined}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _combine(self):
         user_email_path = str(input(f'{colors["white"]}[>] {colors["yellow"]}User/email list path:{colors["white"]} '))
@@ -179,7 +186,10 @@ class Combiner:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
         self._combine()
 
 class Dehash:
@@ -195,6 +205,8 @@ class Dehash:
         """
         print(title)
 
+        self.stop_thread = False
+
         self.dehashed = 0
         self.bads = 0
         self.retries = 0
@@ -202,12 +214,15 @@ class Dehash:
         self.use_proxy = int(input(f'{colors["white"]}[>] {colors["yellow"]}Proxy -> [1]Proxy/[2]Proxyless:{colors["white"]} '))
         self.proxy_type = int(input(f'{colors["white"]}[>] {colors["yellow"]}ProxyType -> [1]Https/[2]Socks4/[3]Socks5:{colors["white"]} '))
         self.threads = int(input(f'{colors["white"]}[>] {colors["yellow"]}Threads:{colors["white"]} '))
+        self.session = requests.session()
         print('')
 
     def _titleUpdate(self):
         while True:
-            _setTitle(f'[ComboAIO] ^| [Dehash] ^| DEHASHED: {self.dehashed} ^| BAD: {self.bads} ^|RETRIES: {self.retries}')
+            _setTitle(f'[ComboAIO] ^| [Dehash] ^| DEHASHED: {self.dehashed} ^| BAD: {self.bads} ^| RETRIES: {self.retries}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _dehash(self,user,hash):
         useragent = _getRandomUserAgent('[Dehash]/useragents.txt')
@@ -217,7 +232,7 @@ class Dehash:
         proxy = _getRandomProxy(self.use_proxy,self.proxy_type,'[Dehash]/proxies.txt')
 
         try:
-            response = requests.get(f'https://hashtoolkit.com/decrypt-hash/?hash={hash}',headers=headers,proxies=proxy)
+            response = self.session.get(f'https://hashtoolkit.com/decrypt-hash/?hash={hash}',headers=headers,proxies=proxy)
 
             result = _findStringBetween(response.text,'<h1 class="res-header">Hashes for: <code>','</code></h1>')
 
@@ -236,7 +251,7 @@ class Dehash:
             self._dehash(user,hash)
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
         threads = []
         for combo in combos:
             Run = True
@@ -253,6 +268,10 @@ class Dehash:
 
         for x in threads:
             x.join()
+
+        t.start()
+        self.stop_thread = True
+        t.join()
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -299,12 +318,16 @@ class EmailExtractor:
         """
         print(title)
 
+        self.stop_thread = False
+
         self.extracted = 0
 
     def _titleUpdate(self):
         while True:
             _setTitle(f'[ComboAIO] ^| [EmailExtractor] ^| EXTRACTED: {self.extracted}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _emailExtract(self):
         for line in combos:
@@ -325,7 +348,10 @@ class EmailExtractor:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
         self._emailExtract()
 
 class EmailFilter:
@@ -340,6 +366,7 @@ class EmailFilter:
                                    ╚════════════════════════════════════════════════╝
         """
         print(title)
+        self.stop_thread = False
 
         self.filtered = 0
 
@@ -351,6 +378,8 @@ class EmailFilter:
         while True:
             _setTitle(f'[ComboAIO] ^| [EmailFilter] ^| FILTERED: {self.filtered}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _createFolder(self,foldername):
         if not path.exists(foldername):
@@ -370,7 +399,7 @@ class EmailFilter:
             _printText(colors['red'],colors['white'],'ERROR',f'Invalid format {email}!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
         threads = []
         for combo in combos:
             Run = True
@@ -383,6 +412,10 @@ class EmailFilter:
 
         for x in threads:
             x.join()
+
+        t.start()
+        self.stop_thread = True
+        t.join()
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -400,12 +433,16 @@ class EmailToUser:
         """
         print(title)
 
+        self.stop_thread = False
+
         self.converted = 0
 
     def _titleUpdate(self):
         while True:
             _setTitle(f'[ComboAIO] ^| [EmailToUser] ^| CONVERTED: {self.converted}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _emailToUser(self):
         for line in combos:
@@ -426,7 +463,10 @@ class EmailToUser:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
         self._emailToUser()
 
 class ComboExtractor:
@@ -442,12 +482,16 @@ class ComboExtractor:
         """
         print(title)
 
+        self.stop_thread = False
+
         self.extracted = 0
 
     def _titleUpdate(self):
         while True:
             _setTitle(f'[ComboAIO] ^| [Extractor] ^| EXTRACTED: {self.extracted}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _extract(self):
         for line in combos:
@@ -465,7 +509,10 @@ class ComboExtractor:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
         self._extract()
 
 class ComboReverse:
@@ -480,6 +527,7 @@ class ComboReverse:
                                    ╚════════════════════════════════════════════════╝
         """
         print(title)
+        self.stop_thread = False
 
         self.reversed = 0
 
@@ -487,8 +535,10 @@ class ComboReverse:
         while True:
             _setTitle(f'[ComboAIO] ^| [Reversed] ^| REVERSED: {self.reversed}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
-    def _extract(self):
+    def _reverse(self):
         for line in combos:
             if len(line.split(':')) != 2:
                 _printText(colors['red'],colors['white'],'ERROR','Invalid format!')
@@ -504,8 +554,11 @@ class ComboReverse:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
-        self._extract()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
+        self._reverse()
 
 class Watermark:
     def __init__(self) -> None:
@@ -519,12 +572,16 @@ class Watermark:
                                    ╚════════════════════════════════════════════════╝
         """
         print(title)
+        self.stop_thread = False
+
         self.added = 0
         
     def _titleUpdate(self):
         while True:
             _setTitle(f'[ComboAIO] ^| [Watermark] ^| ADDED: {self.added}')
             sleep(0.4)
+            if self.stop_thread == True:
+                break
 
     def _watermark(self):
         separator = str(input(f'{colors["white"]}[>] {colors["yellow"]}Enter the custom separator:{colors["white"]} '))
@@ -546,7 +603,10 @@ class Watermark:
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
 
     def _start(self):
-        Thread(target=self._titleUpdate).start()
+        t = Thread(target=self._titleUpdate)
+        t.start()
+        self.stop_thread = True
+        t.join()
         self._watermark()
 
 if __name__ == '__main__':
