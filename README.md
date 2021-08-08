@@ -43,6 +43,9 @@
  run_script.bat
  ```
 
+# ToDo
+ - Read the combo everytime when the menu loads or something like that so you don't have to close the tool everytime when you edited the combos.txt<br/>
+
 # Legal
  - This was merely a speedrun to demonstrate how combo editors work.<br/>
  - The software designed to perform website security testing.<br/>
