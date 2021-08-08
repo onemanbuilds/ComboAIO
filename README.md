@@ -51,4 +51,4 @@
  - This is 100% educational, please do not misuse this tool.<br/>
 
 # Support
- Paypal: onemanbuildsofficial@gmail.com<br/>
+ - Paypal: onemanbuildsofficial@gmail.com<br/>
