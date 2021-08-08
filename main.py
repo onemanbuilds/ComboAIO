@@ -252,6 +252,7 @@ class Dehash:
 
     def _start(self):
         t = Thread(target=self._titleUpdate)
+        t.start()
         threads = []
         for combo in combos:
             Run = True
@@ -269,7 +270,7 @@ class Dehash:
         for x in threads:
             x.join()
 
-        t.start()
+        
         self.stop_thread = True
         t.join()
 
