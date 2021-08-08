@@ -6,6 +6,9 @@ import requests
 
 combos = _readFile('combos.txt','r')
 
+#title update bug
+#dehash untested
+
 class Main:
     def __init__(self) -> None:
         _setTitle('[ComboAIO]')
