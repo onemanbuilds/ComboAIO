@@ -35,7 +35,9 @@
  pip3 install -r requirements.txt then run the command python main.py
  ```
  - Second method, run 
- ```requirements_install.bat
+ ```
+ requirements_install.bat
+ ```
+ ```
  run_script.bat
  ```
-
