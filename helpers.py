@@ -47,7 +47,7 @@ def _readFile(filename,method):
 def _getCurrentTime():
     """Returns the current time formatted."""
     now = datetime.now()
-    curr_time = now.strftime("%d_%m_%Y_%H_%M")
+    curr_time = now.strftime("%d_%m_%Y_%H")
     return curr_time
 
 def _findStringBetween(string,first,last):
