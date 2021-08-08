@@ -28,7 +28,7 @@
  - Combo watermark with custom author.</br>
 
 # Preview
-
+![](https://i.ibb.co/KwGyH2h/comboAIO.png)
 # Installation
  - First method, make sure you have python 3.8.7 or higher.<br/>
  ```
