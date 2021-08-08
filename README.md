@@ -1,8 +1,8 @@
 # ComboAIO
- Simple tool which can be used to edit combo files / text files.</br>
+ - Simple tool which can be used to edit combo files / text files.</br>
 
 # About
- Combo editor tool to demonstrate how these kind of tools work.</br>
+ - Combo editor tool to demonstrate how these kind of tools work.</br>
 
 # Features
  - Title update.</br>
