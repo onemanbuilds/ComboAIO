@@ -4,7 +4,7 @@ class DuplicateRemover:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [DuplicateRemover]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                            ╔╦╗╦ ╦╔═╗╔═╗╦═╗╔═╗╔╦╗╔═╗╦  ╦╔═╗╦═╗
                                             ║║║ ║╠═╝║╣ ╠╦╝║╣ ║║║║ ║╚╗╔╝║╣ ╠╦╝
@@ -22,7 +22,7 @@ class DuplicateRemover:
                 f.write(f'{line}\n')
         
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         self._duplicateRemove()

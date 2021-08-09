@@ -6,7 +6,7 @@ class EmailToUser:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [EmailToUser]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                               ╔═╗╔╦╗╔═╗╦╦ ╔╦╗╔═╗╦ ╦╔═╗╔═╗╦═╗
                                               ║╣ ║║║╠═╣║║  ║ ║ ║║ ║╚═╗║╣ ╠╦╝
@@ -33,7 +33,7 @@ class EmailToUser:
             self.converted += 1
 
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)

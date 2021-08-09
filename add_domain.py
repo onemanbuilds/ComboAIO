@@ -6,7 +6,7 @@ class AddDomain:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [AddDomain]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                 ╔═╗╔╦╗╔╦╗╔╦╗╔═╗╔╦╗╔═╗╦╔╗╔
                                                 ╠═╣ ║║ ║║ ║║║ ║║║║╠═╣║║║║
@@ -25,7 +25,7 @@ class AddDomain:
             sleep(0.4)
 
     def _domain(self):
-        domain = str(input(f'{colors["white"]}[>] {colors["yellow"]}Domain:{colors["white"]} '))
+        domain = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Domain:{colors["lpurple"]} '))
 
         if '@' in domain:
             domain = domain
@@ -39,7 +39,7 @@ class AddDomain:
             self.added += 1
 
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)

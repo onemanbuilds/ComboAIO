@@ -7,7 +7,7 @@ class Dehash:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [Dehash]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                     ╔╦╗╔═╗╦ ╦╔═╗╔═╗╦ ╦
                                                      ║║║╣ ╠═╣╠═╣╚═╗╠═╣
@@ -22,11 +22,11 @@ class Dehash:
 
         self.combos = combos
 
-        self.use_proxy = int(input(f'{colors["white"]}[>] {colors["yellow"]}Proxy -> [1]Proxy/[2]Proxyless:{colors["white"]} '))
+        self.use_proxy = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}[1]Proxy [2]Proxyless:{colors["lpurple"]} '))
         self.proxy_type = None
         if self.use_proxy == 1:
-            self.proxy_type = int(input(f'{colors["white"]}[>] {colors["yellow"]}ProxyType -> [1]Https/[2]Socks4/[3]Socks5:{colors["white"]} '))
-        self.threads = int(input(f'{colors["white"]}[>] {colors["yellow"]}Threads:{colors["white"]} '))
+            self.proxy_type = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}[1]Https [2]Socks4 [3]Socks5:{colors["lpurple"]} '))
+        self.threads = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Threads:{colors["lpurple"]} '))
         self.session = requests.session()
         print('')
 

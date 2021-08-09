@@ -6,7 +6,7 @@ class ComboReverse:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [ComboReverse]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                           ╔═╗╔═╗╔╦╗╔╗ ╔═╗╦═╗╔═╗╦  ╦╔═╗╦═╗╔═╗╔═╗
                                           ║  ║ ║║║║╠╩╗║ ║╠╦╝║╣ ╚╗╔╝║╣ ╠╦╝╚═╗║╣ 
@@ -31,7 +31,7 @@ class ComboReverse:
             self.reversed += 1
 
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)

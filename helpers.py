@@ -4,7 +4,7 @@ from time import sleep
 from datetime import datetime
 from random import choice
 
-colors = {'white': "\033[1;37m", 'green': "\033[0;32m", 'red': "\033[0;31m", 'yellow': "\033[1;33m"}
+colors = {'white': "\033[1;37m", 'green': "\033[0;32m", 'red': "\033[0;31m", 'yellow': "\033[1;33m","lpurple":'\033[1;35m'}
 
 def _clear():
     """Clears the console on every os."""

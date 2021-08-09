@@ -15,7 +15,7 @@ class Menu:
     def __init__(self) -> None:
         _setTitle('[ComboAIO]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                   ╔═╗╔═╗╔╦╗╔╗ ╔═╗╔═╗╦╔═╗
                                                   ║  ║ ║║║║╠╩╗║ ║╠═╣║║ ║
@@ -27,7 +27,7 @@ class Menu:
     def _menu(self):        
         _setTitle('[ComboAIO] ^| [Menu]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                       ╔╦╗╔═╗╔╗╔╦ ╦
                                                       ║║║║╣ ║║║║ ║
@@ -42,10 +42,10 @@ class Menu:
         counter = 0
         for option in options:
             counter+=1
-            _printText(colors['green'],colors['white'],str(counter),option)
+            _printText(colors['green'],colors['lpurple'],str(counter),option)
         print('')
 
-        selected = int(input(f'{colors["white"]}[>] {colors["yellow"]}Select something:{colors["white"]} '))
+        selected = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Select something:{colors["lpurple"]} '))
 
         if selected == 1:
             AddDomain(self.combos)._start()

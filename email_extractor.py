@@ -6,7 +6,7 @@ class EmailExtractor:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [EmailExtractor]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                         ╔═╗╔╦╗╔═╗╦╦  ╔═╗═╗ ╦╔╦╗╦═╗╔═╗╔═╗╔╦╗╔═╗╦═╗
                                         ║╣ ║║║╠═╣║║  ║╣ ╔╩╦╝ ║ ╠╦╝╠═╣║   ║ ║ ║╠╦╝
@@ -33,7 +33,7 @@ class EmailExtractor:
             self.extracted += 1
 
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)

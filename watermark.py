@@ -6,7 +6,7 @@ class Watermark:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [Watermark]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                ╦ ╦╔═╗╔╦╗╔═╗╦═╗╔╦╗╔═╗╦═╗╦╔═
                                                ║║║╠═╣ ║ ║╣ ╠╦╝║║║╠═╣╠╦╝╠╩╗
@@ -25,8 +25,8 @@ class Watermark:
             sleep(0.4)
 
     def _watermark(self):
-        separator = str(input(f'{colors["white"]}[>] {colors["yellow"]}Enter the custom separator:{colors["white"]} '))
-        author = str(input(f'{colors["white"]}[>] {colors["yellow"]}Author:{colors["white"]} '))
+        separator = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Enter the custom separator:{colors["lpurple"]} '))
+        author = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Author:{colors["lpurple"]} '))
         print('')
 
         for line in self.combos:
@@ -36,7 +36,7 @@ class Watermark:
             self.added += 1
 
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)

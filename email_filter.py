@@ -7,7 +7,7 @@ class EmailFilter:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [EmailFilter]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                ╔═╗╔╦╗╔═╗╦╦  ╔═╗╦╦ ╔╦╗╔═╗╦═╗
                                                ║╣ ║║║╠═╣║║  ╠╣ ║║  ║ ║╣ ╠╦╝
@@ -21,7 +21,7 @@ class EmailFilter:
         self.combos = combos
 
         self.providers = _readFile('[EmailFilter]/providers.txt','r')
-        self.threads = int(input(f'{colors["white"]}[>] {colors["yellow"]}Threads:{colors["white"]} '))
+        self.threads = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Threads:{colors["lpurple"]} '))
         print('')
 
     def _titleUpdate(self):
@@ -46,7 +46,7 @@ class EmailFilter:
                     with open(f'[EmailFilter]/[{provider}]/{provider}.txt','a',encoding='utf8') as f:
                         f.write(f'{combo}\n')
         else:
-            _printText(colors['red'],colors['white'],'ERROR',f'Invalid format {email}!')
+            _printText(colors['red'],colors['lpurple'],'ERROR',f'Invalid format {email}!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)
@@ -64,4 +64,4 @@ class EmailFilter:
         for x in threads:
             x.join()
 
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')

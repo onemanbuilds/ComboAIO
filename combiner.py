@@ -6,7 +6,7 @@ class Combiner:
     def __init__(self,combos) -> None:
         _setTitle('[ComboAIO] ^| [Combiner]')
         _clear()
-        title = colors['white']+"""
+        title = colors['lpurple']+"""
                                    ╔════════════════════════════════════════════════╗
                                                   ╔═╗╔═╗╔╦╗╔╗ ╦╔╗╔╔═╗╦═╗
                                                   ║  ║ ║║║║╠╩╗║║║║║╣ ╠╦╝
@@ -24,8 +24,8 @@ class Combiner:
             sleep(0.4)
 
     def _combine(self):
-        user_email_path = str(input(f'{colors["white"]}[>] {colors["yellow"]}User/email list path:{colors["white"]} '))
-        password_path = str(input(f'{colors["white"]}[>] {colors["yellow"]}Password list path:{colors["white"]} '))
+        user_email_path = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}User/email list path:{colors["lpurple"]} '))
+        password_path = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Password list path:{colors["lpurple"]} '))
         print('')
 
         user_email_list = _readFile(user_email_path,'r')
@@ -34,7 +34,7 @@ class Combiner:
         for i in range(len(user_email_list)):
             for j in range(len(password_list)):
                 if len(user_email_list[i]) == 0 or len(password_list[j]) == 0:
-                    _printText(colors['red'],colors['white'],'ERROR','User/email list or password list empty!')
+                    _printText(colors['red'],colors['lpurple'],'ERROR','User/email list or password list empty!')
                     break
                 else:
                     new_line = f'{user_email_list[i]}:{password_list[j]}'
@@ -43,7 +43,7 @@ class Combiner:
                     self.combined += 1
 
         print('')
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)
