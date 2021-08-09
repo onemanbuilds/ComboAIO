@@ -381,10 +381,12 @@ class EmailFilter:
                 break
 
     def _createFolder(self,foldername):
-        if not path.exists(foldername):
-            mkdir(foldername)
-        else:
+        try:
+            if not path.exists(foldername):
+                mkdir(foldername)
+        except FileExistsError:
             pass
+        
 
     def _emailFilter(self,combo:str):
         email = combo.split(':')[0]
