@@ -18,12 +18,8 @@ class DuplicateRemover:
     def _duplicateRemove(self):
         cleaned_file = set(self.combos)
         for line in cleaned_file:
-            if len(line.split(':')) != 2:
-                _printText(colors['red'],colors['white'],'ERROR','Invalid format!')
-                break
-            else:
-                with open(f'[DuplicateRemover]/cleaned_{_getCurrentTime()}.txt','w',encoding='utf8') as f:
-                    f.write(f'{line}\n')
+            with open(f'[DuplicateRemover]/cleaned_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
+                f.write(f'{line}\n')
         
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
