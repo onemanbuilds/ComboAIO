@@ -383,6 +383,8 @@ class EmailFilter:
     def _createFolder(self,foldername):
         if not path.exists(foldername):
             mkdir(foldername)
+        else:
+            pass
 
     def _emailFilter(self,combo:str):
         email = combo.split(':')[0]
