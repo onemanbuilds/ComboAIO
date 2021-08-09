@@ -81,5 +81,4 @@ class Dehash:
         for x in threads:
             x.join()
 
-        print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
