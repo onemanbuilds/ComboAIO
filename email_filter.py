@@ -16,18 +16,11 @@ class EmailFilter:
         """
         print(title)
 
-        self.filtered = 0
-
         self.combos = combos
 
         self.providers = _readFile('[EmailFilter]/providers.txt','r')
         self.threads = int(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}Threads:{colors["lpurple"]} '))
         print('')
-
-    def _titleUpdate(self):
-        while True:
-            _setTitle(f'[ComboAIO] ^| [EmailFilter] ^| FILTERED: {self.filtered}')
-            sleep(0.4)
 
     def _createFolder(self,foldername):
         try:
@@ -49,17 +42,15 @@ class EmailFilter:
             _printText(colors['red'],colors['lpurple'],'ERROR',f'Invalid format {email}!')
 
     def _start(self):
-        t = Thread(target=self._titleUpdate)
-        t.start()
         threads = []
         for combo in self.combos:
-            Run = True
-            while Run:
+            run = True
+            while run:
                 if active_count()<=self.threads:
                     thread = Thread(target=self._emailFilter,args=(combo,))
                     threads.append(thread)
                     thread.start()
-                    Run = False
+                    run = False
 
         for x in threads:
             x.join()
