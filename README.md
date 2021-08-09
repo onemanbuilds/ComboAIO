@@ -45,7 +45,7 @@
  - Third method, download the exe version from the releases tab on the right side.
 
 # ToDo
- - Title update fix/function.<br/>
+ - Title update fix / function.<br/>
  - Combo splitter function.<br/>
  - Increase performance.<br/>
 
