@@ -47,6 +47,7 @@
 # ToDo
  - Title update fix/function.<br/>
  - Combo splitter function.<br/>
+ - Increase performance.<br/>
 
 # Note
  - If you have any issues or noticed something feel free to report the issue so i can fix it when i will have time.<br/>
