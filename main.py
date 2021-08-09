@@ -127,7 +127,6 @@ class AddDomain:
                 with open(f'[AddDomain]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                     f.write(f'{new_line}\n')
                 self.added += 1
-                _printText(colors['green'],colors['white'],'AddDomain',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -180,7 +179,6 @@ class Combiner:
                     with open(f'[Combiner]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                         f.write(f'{new_line}\n')
                     self.combined += 1
-                    _printText(colors['green'],colors['white'],'Combine',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -344,7 +342,6 @@ class EmailExtractor:
                 with open(f'[EmailExtractor]/email_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                     f.write(f'{new_line}\n')
                 self.extracted += 1
-                _printText(colors['green'],colors['white'],'EmailExtractor',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -386,8 +383,6 @@ class EmailFilter:
     def _createFolder(self,foldername):
         if not path.exists(foldername):
             mkdir(foldername)
-        else:    
-            _printText(colors['red'],colors['white'],'ERROR',f'{foldername} already exists!')
 
     def _emailFilter(self,combo:str):
         email = combo.split(':')[0]
@@ -459,7 +454,6 @@ class EmailToUser:
                 with open(f'[EmailToUser]/user_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                     f.write(f'{new_line}\n')
                 self.converted += 1
-                _printText(colors['green'],colors['white'],'EmailToUser',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -505,7 +499,6 @@ class ComboExtractor:
                 with open(f'[ComboExtractor]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                     f.write(f'{new_line}\n')
                 self.extracted += 1
-                _printText(colors['green'],colors['white'],'ComboExtractor',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -550,7 +543,6 @@ class ComboReverse:
                 with open(f'[ComboReverse]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                     f.write(f'{new_line}\n')
                 self.reversed += 1
-                _printText(colors['green'],colors['white'],'ComboExtractor',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
@@ -599,7 +591,6 @@ class Watermark:
                 with open(f'[Watermark]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
                     f.write(f'{new_line}\n')
                 self.added += 1
-                _printText(colors['green'],colors['white'],'ADDED',new_line)
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
