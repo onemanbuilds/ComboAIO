@@ -63,10 +63,10 @@ def _getRandomUserAgent(path):
 
 def _getRandomProxy(use_proxy, proxy_type,path):
     """Returns random proxy dict with proxy type check."""
-    proxies_file = _readFile(path, 'r')
-    random_proxy = choice(proxies_file)
     proxies = {}
     if use_proxy == 1:
+        proxies_file = _readFile(path, 'r')
+        random_proxy = choice(proxies_file)
         if proxy_type == 1:
             proxies = {
                 "http": "http://{0}".format(random_proxy),

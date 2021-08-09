@@ -212,7 +212,9 @@ class Dehash:
         self.retries = 0
 
         self.use_proxy = int(input(f'{colors["white"]}[>] {colors["yellow"]}Proxy -> [1]Proxy/[2]Proxyless:{colors["white"]} '))
-        self.proxy_type = int(input(f'{colors["white"]}[>] {colors["yellow"]}ProxyType -> [1]Https/[2]Socks4/[3]Socks5:{colors["white"]} '))
+        self.proxy_type = None
+        if self.use_proxy == 1:
+            self.proxy_type = int(input(f'{colors["white"]}[>] {colors["yellow"]}ProxyType -> [1]Https/[2]Socks4/[3]Socks5:{colors["white"]} '))
         self.threads = int(input(f'{colors["white"]}[>] {colors["yellow"]}Threads:{colors["white"]} '))
         self.session = requests.session()
         print('')
@@ -270,7 +272,6 @@ class Dehash:
         for x in threads:
             x.join()
 
-        
         self.stop_thread = True
         t.join()
 
@@ -401,6 +402,7 @@ class EmailFilter:
 
     def _start(self):
         t = Thread(target=self._titleUpdate)
+        t.start()
         threads = []
         for combo in combos:
             Run = True
@@ -414,7 +416,6 @@ class EmailFilter:
         for x in threads:
             x.join()
 
-        t.start()
         self.stop_thread = True
         t.join()
 
