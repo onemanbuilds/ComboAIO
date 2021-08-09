@@ -30,14 +30,10 @@ class Watermark:
         print('')
 
         for line in self.combos:
-            if len(line.split(':')) != 2:
-                _printText(colors['red'],colors['white'],'ERROR','Invalid format!')
-                break
-            else:
-                new_line = f'{line} {separator} Author: {author}'
-                with open(f'[Watermark]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
-                    f.write(f'{new_line}\n')
-                self.added += 1
+            new_line = f'{line} {separator} Author: {author}'
+            with open(f'[Watermark]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
+                f.write(f'{new_line}\n')
+            self.added += 1
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')

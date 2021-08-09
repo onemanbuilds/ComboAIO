@@ -25,14 +25,10 @@ class ComboReverse:
 
     def _reverse(self):
         for line in self.combos:
-            if len(line.split(':')) != 2:
-                _printText(colors['red'],colors['white'],'ERROR','Invalid format!')
-                break
-            else:
-                new_line = line.split(':')[1]+':'+line.split(':')[0]
-                with open(f'[ComboReverse]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
-                    f.write(f'{new_line}\n')
-                self.reversed += 1
+            new_line = line.split(':')[1]+':'+line.split(':')[0]
+            with open(f'[ComboReverse]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
+                f.write(f'{new_line}\n')
+            self.reversed += 1
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')

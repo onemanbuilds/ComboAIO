@@ -27,17 +27,10 @@ class EmailExtractor:
 
     def _emailExtract(self):
         for line in self.combos:
-            if len(line.split(':')) != 2:
-                _printText(colors['red'],colors['white'],'ERROR','Invalid format!')
-                break
-            elif '@' not in line.split(':')[0]:
-                _printText(colors['red'],colors['white'],'ERROR','Please use email combo instead of user!')
-                break
-            else:
-                new_line = line.split(':')[0]
-                with open(f'[EmailExtractor]/email_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
-                    f.write(f'{new_line}\n')
-                self.extracted += 1
+            new_line = line.split(':')[0]
+            with open(f'[EmailExtractor]/email_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
+                f.write(f'{new_line}\n')
+            self.extracted += 1
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')

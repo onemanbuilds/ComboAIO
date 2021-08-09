@@ -26,14 +26,10 @@ class ComboExtractor:
 
     def _extract(self):
         for line in self.combos:
-            if len(line.split(':')) != 2:
-                _printText(colors['red'],colors['white'],'ERROR','Invalid format!')
-                break
-            else:
-                new_line = line.split(':')[0]+':'+line.split(':')[1].split()[0]
-                with open(f'[ComboExtractor]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
-                    f.write(f'{new_line}\n')
-                self.extracted += 1
+            new_line = line.split(':')[0]+':'+line.split(':')[1].split()[0]
+            with open(f'[ComboExtractor]/combo_{_getCurrentTime()}.txt','a',encoding='utf8') as f:
+                f.write(f'{new_line}\n')
+            self.extracted += 1
 
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
