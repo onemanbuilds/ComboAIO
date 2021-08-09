@@ -64,7 +64,5 @@ class EmailFilter:
         for x in threads:
             x.join()
 
-        t.join()
-
         print('')
         _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')

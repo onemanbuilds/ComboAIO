@@ -45,7 +45,6 @@
  - Third method, download the exe version from the releases tab on the right side.
 
 # ToDo
- - Read the combo everytime when the menu loads or something like that so you don't have to close the tool everytime when you edited the combos.txt.<br/>
  - Title update fix not updating / not working.<br/>
  - Combo splitter function.<br/>
 

@@ -45,5 +45,4 @@ class Watermark:
     def _start(self):
         t = Thread(target=self._titleUpdate)
         t.start()
-        t.join()
         self._watermark()
