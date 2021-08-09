@@ -24,8 +24,8 @@ class Combiner:
             sleep(0.4)
 
     def _combine(self):
-        user_email_path = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}User/email list path:{colors["lpurple"]} '))
-        password_path = str(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Password list path:{colors["lpurple"]} '))
+        user_email_path = str(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}User/email list path:{colors["lpurple"]} '))
+        password_path = str(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}Password list path:{colors["lpurple"]} '))
         print('')
 
         user_email_list = _readFile(user_email_path,'r')
@@ -43,7 +43,7 @@ class Combiner:
                     self.combined += 1
 
         print('')
-        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
+        _printText(colors['bcyan'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)

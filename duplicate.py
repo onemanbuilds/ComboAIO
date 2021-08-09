@@ -22,7 +22,7 @@ class DuplicateRemover:
                 f.write(f'{line}\n')
         
         print('')
-        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
+        _printText(colors['bcyan'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         self._duplicateRemove()

@@ -42,10 +42,10 @@ class Menu:
         counter = 0
         for option in options:
             counter+=1
-            _printText(colors['green'],colors['lpurple'],str(counter),option)
+            _printText(colors['bcyan'],colors['lpurple'],str(counter),option)
         print('')
 
-        selected = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Select something:{colors["lpurple"]} '))
+        selected = int(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}Select something:{colors["lpurple"]} '))
 
         if selected == 1:
             AddDomain(self.combos)._start()

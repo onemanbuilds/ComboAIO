@@ -21,7 +21,7 @@ class EmailFilter:
         self.combos = combos
 
         self.providers = _readFile('[EmailFilter]/providers.txt','r')
-        self.threads = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Threads:{colors["lpurple"]} '))
+        self.threads = int(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}Threads:{colors["lpurple"]} '))
         print('')
 
     def _titleUpdate(self):
@@ -64,4 +64,4 @@ class EmailFilter:
         for x in threads:
             x.join()
 
-        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
+        _printText(colors['bcyan'],colors['lpurple'],'FINISHED','Process done!')

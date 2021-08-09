@@ -22,11 +22,11 @@ class Dehash:
 
         self.combos = combos
 
-        self.use_proxy = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}[1]Proxy [2]Proxyless:{colors["lpurple"]} '))
+        self.use_proxy = int(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}[1]Proxy [2]Proxyless:{colors["lpurple"]} '))
         self.proxy_type = None
         if self.use_proxy == 1:
-            self.proxy_type = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}[1]Https [2]Socks4 [3]Socks5:{colors["lpurple"]} '))
-        self.threads = int(input(f'{colors["lpurple"]}[>] {colors["yellow"]}Threads:{colors["lpurple"]} '))
+            self.proxy_type = int(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}[1]Https [2]Socks4 [3]Socks5:{colors["lpurple"]} '))
+        self.threads = int(input(f'{colors["lpurple"]}[>] {colors["bcyan"]}Threads:{colors["lpurple"]} '))
         self.session = requests.session()
         print('')
 
@@ -49,12 +49,12 @@ class Dehash:
 
             if result != None and '<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="' not in result:
                 self.dehashed += 1
-                _printText(colors['green'],colors['white'],'HIT',f'{user}:{result}')
+                _printText(colors['green'],colors['lpurple'],'HIT',f'{user}:{result}')
                 with open('[Dehash]/hits.txt','a',encoding='utf8') as f:
                     f.write(f'{user}:{result}\n')
             else:
                 self.bads += 1
-                _printText(colors['green'],colors['white'],'BAD',f'{user}:{hash}')
+                _printText(colors['red'],colors['lpurple'],'BAD',f'{user}:{hash}')
                 with open('[Dehash]/bads.txt','a',encoding='utf8') as f:
                     f.write(f'{user}:{result}\n')
         except Exception:
@@ -81,4 +81,4 @@ class Dehash:
         for x in threads:
             x.join()
 
-        _printText(colors['yellow'],colors['white'],'FINISHED','Process done!')
+        _printText(colors['bcyan'],colors['white'],'FINISHED','Process done!')

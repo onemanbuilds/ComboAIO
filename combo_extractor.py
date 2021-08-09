@@ -32,7 +32,7 @@ class ComboExtractor:
             self.extracted += 1
 
         print('')
-        _printText(colors['yellow'],colors['lpurple'],'FINISHED','Process done!')
+        _printText(colors['bcyan'],colors['lpurple'],'FINISHED','Process done!')
 
     def _start(self):
         t = Thread(target=self._titleUpdate)
